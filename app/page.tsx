@@ -7,11 +7,27 @@ export default function Page() {
   const { avatarUrl, name, bio, socialLinks, links } = profileData
 
   return (
-    <main className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-[#0b0f0a] px-4 py-12 text-white">
-      {/* Fondo con gradiente sutil en tonos verde oliva */}
+    <main className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black px-4 py-12 text-white">
+      {/* Textura de puntos tecnológica (Dot Matrix) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_-10%,rgba(74,93,42,0.45),transparent_45%),radial-gradient(circle_at_85%_10%,rgba(120,140,70,0.22),transparent_45%),radial-gradient(circle_at_50%_120%,rgba(52,66,32,0.5),transparent_50%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:24px_24px] opacity-40"
+      />
+
+      {/* Retícula digital de ingeniería */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30"
+      />
+
+      {/* Resplandor sutil de neón rojo corporativo de BYRICHH */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 -left-40 size-96 rounded-full bg-red-600/15 blur-[140px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-red-900/10 blur-[140px]"
       />
 
       <section className="relative z-10 flex w-full max-w-md flex-col items-center gap-8">
@@ -20,7 +36,7 @@ export default function Page() {
           <div className="relative">
             <div
               aria-hidden="true"
-              className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#4a5d2a] via-[#78883f] to-[#a3b56a] opacity-60 blur-md"
+              className="absolute -inset-1 rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-red-800 opacity-75 blur-sm"
             />
             <Image
               src={avatarUrl || "/placeholder.svg"}
@@ -28,13 +44,17 @@ export default function Page() {
               width={112}
               height={112}
               priority
-              className="relative size-28 rounded-full border-2 border-white/20 object-cover shadow-xl"
+              className="relative size-28 rounded-full border-2 border-red-500/30 object-cover shadow-xl"
             />
           </div>
 
           <div className="space-y-2">
-            <h1 className="text-balance text-2xl font-bold tracking-tight sm:text-3xl">{name}</h1>
-            <p className="mx-auto max-w-xs text-pretty text-sm leading-relaxed text-white/60">{bio}</p>
+            <h1 className="text-balance text-3xl font-black uppercase tracking-tight text-[#FF2A2A] drop-shadow-[0_2px_10px_rgba(255,42,42,0.3)]">
+              {name}
+            </h1>
+            <p className="mx-auto max-w-xs text-pretty text-sm leading-relaxed text-zinc-300">
+              {bio}
+            </p>
           </div>
         </header>
 
@@ -48,7 +68,7 @@ export default function Page() {
           ))}
         </div>
 
-        <footer className="pt-2 text-center text-xs text-white/30">
+        <footer className="pt-2 text-center text-xs text-zinc-500 uppercase tracking-widest">
           {`© ${new Date().getFullYear()} ${name}`}
         </footer>
       </section>

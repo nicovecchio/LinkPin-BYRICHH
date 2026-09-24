@@ -1,23 +1,28 @@
 'use client'
 
 import { ArrowUpRight } from "lucide-react"
-import { track } from "@vercel/analytics"
 import type { MainLink } from "@/lib/profile-data"
 
 export function LinkButton({ link }: { link: MainLink }) {
   const Icon = link.icon
+
+  const handleClick = () => {
+    // Registro seguro de clics en cliente (compatible con Google Analytics / Vercel)
+    if (typeof window !== "undefined" && "gtag" in window) {
+      ;(window as any).gtag("event", "click", {
+        event_category: "outbound",
+        event_label: link.title,
+        transport_type: "beacon",
+      })
+    }
+  }
 
   return (
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => {
-        track("link_click", {
-          title: link.title,
-          url: link.url,
-        })
-      }}
+      onClick={handleClick}
       className="group relative flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-red-500/50 hover:bg-white/10"
     >
       {Icon ? (

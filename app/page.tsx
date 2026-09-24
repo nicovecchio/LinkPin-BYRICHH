@@ -1,3 +1,15 @@
+'use client';
+
+import { LinkButton } from '@/components/link-button';
+import { Instagram, Globe, Phone } from 'lucide-react';
+
+export default function Home() {
+  return (
+    <main className="flex flex-col items-center justify-center min-h-screen p-4">
+      {/* Tu estructura de botones */}
+    </main>
+  );
+}
 import Image from "next/image"
 import { profileData } from "@/lib/profile-data"
 import { SocialIcons } from "@/components/social-icons"

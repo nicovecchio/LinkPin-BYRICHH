@@ -3,13 +3,24 @@
 import { ArrowUpRight } from "lucide-react"
 import type { MainLink } from "@/lib/profile-data"
 
+// Nico, declaramos gtag en la interfaz global de Window de forma tipada y segura sin usar 'any'
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      action: string,
+      params?: Record<string, unknown>
+    ) => void
+  }
+}
+
 export function LinkButton({ link }: { link: MainLink }) {
   const Icon = link.icon
 
   const handleClick = () => {
-    // Registro seguro de clics en cliente (compatible con Google Analytics / Vercel)
-    if (typeof window !== "undefined" && "gtag" in window) {
-      ;(window as any).gtag("event", "click", {
+    // Nico, invocamos de forma segura si el script de Google Analytics está cargado
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "click", {
         event_category: "outbound",
         event_label: link.title,
         transport_type: "beacon",

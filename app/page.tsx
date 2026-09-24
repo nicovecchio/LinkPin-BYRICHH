@@ -7,17 +7,17 @@ export default function Page() {
   const { avatarUrl, name, bio, socialLinks, links } = profileData
 
   return (
-    <main className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black px-4 py-12 text-white">
+    <main className="relative flex min-h-dvh w-full items-center justify-center overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-black p-4">
       {/* Textura de puntos tecnológica (Dot Matrix) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:24px_24px] opacity-40"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:16px_16px] opacity-40"
       />
 
       {/* Retícula digital de ingeniería */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] [background-size:32px_32px] opacity-20"
       />
 
       {/* Resplandor sutil de neón rojo corporativo de BYRICHH */}
@@ -36,7 +36,7 @@ export default function Page() {
           <div className="relative">
             <div
               aria-hidden="true"
-              className="absolute -inset-1 rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-red-800 opacity-75 blur-sm"
+              className="absolute -inset-1 rounded-full bg-gradient-to-tr from-red-600 via-red-500 to-red-800 opacity-75"
             />
             <Image
               src={avatarUrl || "/placeholder.svg"}
@@ -68,8 +68,17 @@ export default function Page() {
           ))}
         </div>
 
-        <footer className="pt-2 text-center text-xs text-zinc-500 uppercase tracking-widest">
-          {`© ${new Date().getFullYear()} ${name}`}
+        {/* Firma comercial acoplada a la estética tecnológica y neón de BYRICHH */}
+        <footer className="pt-2 text-center text-xs font-semibold tracking-widest text-zinc-400 uppercase">
+          Powered by{" "}
+          <a
+            href="https://tarjetaspersonalizadas.ve"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-red-500 via-red-400 to-zinc-200 bg-clip-text font-black text-transparent transition-opacity hover:opacity-80"
+          >
+            tarjetaspersonalizadas.ve
+          </a>
         </footer>
       </section>
     </main>
